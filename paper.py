@@ -241,3 +241,7 @@ class ArxivPaper:
                 logger.debug(f"Failed to extract affiliations of {self.arxiv_id}: {e}")
                 return None
             return affiliations
+
+    # print all infos of the paper using __str__
+    def __str__(self):
+        return f"Title: {self.title}\nAuthors: {self.authors}\nArxiv ID: {self.arxiv_id}\nPDF URL: {self.pdf_url}\nCode URL: {self.code_url}\nAbstract: {self.summary}\nAffiliations: {self.affiliations}"
