@@ -153,6 +153,7 @@ if __name__ == '__main__':
     else:
         logger.remove()
         logger.add(sys.stdout, level="INFO")
+    logger.info("the file is changed")
 
     logger.info("Retrieving Zotero corpus...")
     corpus = get_zotero_corpus(args.zotero_id, args.zotero_key)
