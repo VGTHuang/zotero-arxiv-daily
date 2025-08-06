@@ -179,7 +179,7 @@ if __name__ == '__main__':
             logger.info("Using Local LLM as global LLM.")
             set_global_llm(lang=args.language)
     for i in papers:
-        print(i)
+        logger.info(i)
     
     html = render_email(papers)
     logger.info("Sending email...")
