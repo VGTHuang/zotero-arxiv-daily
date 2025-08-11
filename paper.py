@@ -5,7 +5,7 @@ import arxiv
 import tarfile
 import re
 import time
-from llm import get_llm
+from llm import set_global_llm, get_llm
 import requests
 from requests.adapters import HTTPAdapter, Retry
 from loguru import logger
@@ -244,4 +244,9 @@ class ArxivPaper:
 
     # print all infos of the paper using __str__
     def __str__(self):
-        return f"Title: {self.title}\nAuthors: {self.authors}\nArxiv ID: {self.arxiv_id}\nPDF URL: {self.pdf_url}\nCode URL: {self.code_url}\nAbstract: {self.summary}\nAffiliations: {self.affiliations}"
+        return f"Title: {self.title}\nAuthors: {self.authors}\nArxiv ID: {self.arxiv_id}\nPDF URL: {self.pdf_url}\nCode URL: {self.code_url}\nAbstract: {self.summary}\nAffiliations: {self.affiliations}\ntldr: {self.tldr}"
+
+if __name__ == '__main__':
+    set_global_llm(api_key="sk-xqdbjbdoobtlmqvpgdyvejnzwcjnytzvxwjyajthvwzllrmd", base_url="https://api.siliconflow.cn/v1", model="Qwen/Qwen3-8B", lang="English")
+    paper = ArxivPaper('2508.02464')
+    print(paper)
