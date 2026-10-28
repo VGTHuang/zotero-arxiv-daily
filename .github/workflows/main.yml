@@ -2,7 +2,9 @@ name: Send emails daily
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 22 * * *'
+    # Daily at 22:17 UTC (06:17 Asia/Shanghai the following day).
+    # Avoid the start of the hour, when GitHub Actions schedules are busiest.
+    - cron: '17 22 * * *'
 
 jobs:
   calculate-and-send:
